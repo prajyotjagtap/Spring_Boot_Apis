@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Item Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #29AB87; /* Neon Green */
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        p {
+            color: #333;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #29AB87; /* Neon Green */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #4D0F28; /* Neon color */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Item Details</h2>
+
+<!-- Check if the item is present -->
+<div th:if="${item != null}">
+    <!-- Display item details using a table -->
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.description}"></td>
+        </tr>
+    </table>
+    <!-- Add an option to go back to the homepage -->
+    <a th:href="@{/}" class="button">Back to Homepage</a>
+</div>
+<!-- If the item is not present, display an error message -->
+<div th:if="${item == null}">
+    <p th:text="${errorMessage}"></p>
+    <!-- Provide options to check the ID or go back to the homepage -->
+    <a th:href="@{/items/viewItemById}" class="button">Check Another Item ID</a>
+    <br/>
+    <a th:href="@{/}" class="button">Back to Homepage</a>
+</div>
+
+</body>
+</html>

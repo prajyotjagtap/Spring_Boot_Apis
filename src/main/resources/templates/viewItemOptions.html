@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Item Options</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #29AB87; /* Neon Green */
+            color: #fff;
+            padding: 10px 15px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #4D0F28; /* Neon color */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>View Item Options</h2>
+    </header>
+
+    <a href="/items/viewAllItems">View All Items</a>
+    <a href="/items/viewItemById">View Item by ID</a>
+</body>
+</html>

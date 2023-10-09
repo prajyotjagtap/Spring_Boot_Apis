@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View All Items</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #29AB87;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #29AB87;
+            border-radius: 5px;
+        }
+
+        a.button:hover {
+            background-color: #4D0F28;
+        }
+    </style>
+</head>
+<body>
+
+<h2>View All Items</h2>
+
+<!-- Check if items are present -->
+<div th:if="${not #lists.isEmpty(items)}">
+    <!-- Your existing code to display items -->
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.description}"></td>
+        </tr>
+    </table>
+    <!-- Add an option to go back to the homepage -->
+    <a th:href="@{/}" class="button">Back to Homepage</a>
+</div>
+<!-- If no items, display a message and provide options -->
+<div th:if="${#lists.isEmpty(items)}">
+    <p>No items found. Do you want to add an item?</p>
+    <a th:href="@{/items/addItem}" class="button">Add Item</a>
+    <br/>
+    <a th:href="@{/}" class="button">Back to Homepage</a>
+</div>
+
+</body>
+</html>

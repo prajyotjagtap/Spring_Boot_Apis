@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff; /* White color for text */
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #333; /* Background color of the welcome header */
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #29AB87; /* Neon Green */
+            transition: background-color 0.3s;
+        }
+
+        .message {
+            margin-top: 20px;
+        }
+
+        .success-message {
+            color: #39FF14; /* Neon Green-Yellow */
+        }
+
+        .error-message {
+            color: #0FF0FC; /* Neon Blue */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Item Management</h1>
+    </header>
+
+    <nav>
+        <a href="/items/addItem">Add Item</a>
+        <a href="/items/viewItem">View Item</a>
+    </nav>
+
+    <!-- Display success or error messages -->
+    <p class="message success-message" th:if="${successMessage}" th:text="${successMessage}"></p>
+    <p class="message error-message" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+</body>
+</html>
